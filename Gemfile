@@ -23,7 +23,7 @@ end
 gem 'jquery-rails'
 
 gem 'simple_form'
-gem "therubyracer"
+gem "therubyracer", ">=0.11.0beta1"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem 'devise'
