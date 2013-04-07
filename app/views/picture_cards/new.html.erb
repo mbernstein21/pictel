@@ -1,8 +1,18 @@
 <h1>New Picture Card</h1>
-
+<script> 
+  $(function sendPicture() {
+    var canvas = document.getElementById('colored_sketch');
+    
+    $('#new_card').submit(function() {
+      $('#picture_card_attachment').val(canvas.toDataURL());
+    });
+    
+  });
+</script>
 <%= simple_form_for [@stack, @card] do |f| %>
   <%= f.input :author %>
   <%= f.input :data_picture %>
+  <%= f.input :attachment %>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src='../src/sketch.js'></script>
     <script type='text/javascript'>
@@ -21,4 +31,5 @@
     <canvas id='colored_sketch' width='400' height='400' style='border: 2px solid black'></canvas>
     <%= render :partial => 'form' %>
   <%= f.button :submit %>
+
 <% end %>

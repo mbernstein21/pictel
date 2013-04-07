@@ -10,14 +10,14 @@
       canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
     })
   });
- 
-- form_for @message do |f|    
+
+- form_for [@stack, @card] do |f|    
   .send= image_submit_tag 'send.png'
   .erase= image_tag 'erase.png'
  
   #container
-    <canvas id="imageView" width="536" height="984">
+    <canvas id="imageView" width="400" height="400">
     </canvas>
-    
-- f.fields_for "images", Image.new do |i|
-  = i.hidden_field :attachment64
+
+  - f.fields_for "images", PictureCard.new do |pc|
+    = pc.hidden_field :attachment

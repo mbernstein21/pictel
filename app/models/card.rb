@@ -17,7 +17,7 @@ class PictureCard < Card
  
 	before_validation :save_attachment64
  
-	has_attached_file :attachment, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/aws.yml",
+	has_attached_file :attachment, :storage => :s3, :s3_credentials => "/config/aws.yml",
                                  :path => "messages_images/:id/:style/:filename",
                                  :styles => { :original => ['400x400>'],
                                               :normal => ['400x400>'],

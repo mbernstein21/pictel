@@ -72,7 +72,14 @@ var __slice = Array.prototype.slice;
         format = "jpeg";
       }
       mime = "image/" + format;
-      return window.open(this.el.toDataURL(mime));
+
+    var canvas = document.getElementById('colored_sketch');
+    
+    //$('#new_card').submit(function() {
+      $('#picture_card_attachment').val(canvas.toDataURL());
+    //});
+      alert($('#picture_card_attachment').value());
+      return ;
     };
     Sketch.prototype.set = function(key, value) {
       this[key] = value;
