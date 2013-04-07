@@ -1,0 +1,23 @@
+:javascript
+  $(function() {
+    var canvas = document.getElementById('imageView');
+    
+    $('#new_message').submit(function() {
+      $('#message_images_attributes_0_attachment64').val(canvas.toDataURL());
+    });
+    
+    $('.erase').click(function() {
+      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    })
+  });
+ 
+- form_for @message do |f|    
+  .send= image_submit_tag 'send.png'
+  .erase= image_tag 'erase.png'
+ 
+  #container
+    <canvas id="imageView" width="536" height="984">
+    </canvas>
+    
+- f.fields_for "images", Image.new do |i|
+  = i.hidden_field :attachment64
